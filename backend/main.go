@@ -10,10 +10,9 @@ import (
 
 const baseURL = "https://sigex.kz"
 
-
-
 // we did't need timeout because when 15min life time of QRCode is expired sigex will message to us
 func main() {
+	dinit()
 }
 
 func dinit() {
@@ -171,5 +170,7 @@ func firstThreStep() ([]string, []byte, string) {
 		fmt.Println("GetSignatures Error:", err)
 		return nil, nil, ""
 	}
+
+	fmt.Println(signatures, dataBytes, dataToSignBase64)
 	return signatures, dataBytes, dataToSignBase64
 }

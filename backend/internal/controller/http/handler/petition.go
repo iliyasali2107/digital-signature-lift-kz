@@ -59,6 +59,7 @@ func (h petitionHandler) GetPetitionPDF(c *gin.Context) {
 }
 
 func (h petitionHandler) GeneratePetitionPDFHandler(c *gin.Context) {
+	
 	// Parse JSON request body into a PetitionData struct
 	var requestData petition.PetitionData
 	if err := c.BindJSON(&requestData); err != nil {

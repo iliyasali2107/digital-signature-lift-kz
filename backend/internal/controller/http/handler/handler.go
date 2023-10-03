@@ -1,6 +1,8 @@
 package handler
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 	"go.uber.org/zap"
 
@@ -45,9 +47,14 @@ func NewRouter(deps Deps) *gin.Engine {
 				router:        api,
 				surveyService: deps.Services.Survey,
 			})
+
 		newTestURLHandler(testURLDeps{
 			router: router,
 		})
+	}
+
+	for _, v := range router.Routes() {
+		fmt.Println(v)
 	}
 
 	return router

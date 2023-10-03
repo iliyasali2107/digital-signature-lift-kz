@@ -23,7 +23,6 @@ type QRSigningClientCMS struct {
 	EGovBusinessLaunchLink string
 }
 
-
 // NewQRSigningClientCMS creates a new instance of QRSigningClientCMS.
 /**
   * Конструктор.
@@ -49,6 +48,7 @@ func (qc *QRSigningClientCMS) RegisterQRSinging() (string, error) {
 		"description": qc.Description,
 	}
 
+	fmt.Println("-----------------------", data, "-------------------------")
 	dataBytes, err := json.Marshal(data)
 	if err != nil {
 		return "", err
